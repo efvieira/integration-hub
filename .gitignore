@@ -1,0 +1,17 @@
+target/
+!.mvn/wrapper/maven-wrapper.jar
+*.class
+*.log
+.idea/
+*.iml
+.vscode/
+.DS_Store
+node_modules/
+dist/
+.angular/
+coverage/
+.env
+*.pfx
+*.p12
+*.jks
+certs/
