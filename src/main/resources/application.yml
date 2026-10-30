@@ -1,0 +1,44 @@
+spring:
+  application:
+    name: integration-hub
+  threads:
+    virtual:
+      enabled: true
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/hub}
+    username: ${DB_USER:hub}
+    password: ${DB_PASSWORD:hub}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  rabbitmq:
+    host: ${RABBIT_HOST:localhost}
+    username: ${RABBIT_USER:guest}
+    password: ${RABBIT_PASSWORD:guest}
+  mvc:
+    problemdetails:
+      enabled: true
+
+hub:
+  orders-poll-interval: PT15S
+  stock-sync-interval: PT2M
+  retry:
+    max-attempts: 5
+    base-backoff: PT5S
+
+connectors:
+  mercado-livre:
+    base-url: https://api.mercadolibre.com
+    access-token: ${ML_ACCESS_TOKEN:}
+    seller-id: ${ML_SELLER_ID:}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
