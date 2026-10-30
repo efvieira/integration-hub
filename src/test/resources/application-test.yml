@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:hub;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;DEFAULT_NULL_ORDERING=HIGH
+    username: sa
+    password:
+  rabbitmq:
+    listener:
+      simple:
+        auto-startup: false
+
+hub:
+  initial-delay: PT1H
+  orders-poll-interval: PT1H
+  stock-sync-interval: PT1H
+  retry:
+    max-attempts: 3
